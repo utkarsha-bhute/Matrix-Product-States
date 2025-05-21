@@ -44,6 +44,7 @@ Install NumPy using:
 
 ```bash
 pip install numpy
+```
 
 ---
 
