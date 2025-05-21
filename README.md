@@ -44,3 +44,16 @@ Install NumPy using:
 
 ```bash
 pip install numpy
+
+## 🚀 Usage
+## 1. Left-Canonical MPS
+
+from mps_qudit import normalize, leftCanonicalMPS
+
+L = 3        # Number of sites
+d = 3        # Local dimension (qudit)
+psir = [0]*d**L
+psir[0], psir[13], psir[26] = 1, 1, 1
+
+vin = normalize(psir)
+matricesA = leftCanonicalMPS(d, L, vin.reshape((1, -1)), 1)
