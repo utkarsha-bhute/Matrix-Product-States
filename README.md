@@ -45,6 +45,8 @@ Install NumPy using:
 ```bash
 pip install numpy
 
+---
+
 ## 🚀 Usage
 ## 1. Left-Canonical MPS
 
