@@ -50,7 +50,7 @@ pip install numpy
 
 ## 🚀 Usage
 ## 1. Left-Canonical MPS
-
+```bash
 from mps_qudit import normalize, leftCanonicalMPS
 
 L = 3        # Number of sites
@@ -60,3 +60,57 @@ psir[0], psir[13], psir[26] = 1, 1, 1
 
 vin = normalize(psir)
 matricesA = leftCanonicalMPS(d, L, vin.reshape((1, -1)), 1)
+```
+
+## 2. Right-Canonical MPS
+```bash
+from mps_qudit import normalize, rightCanonicalMPS
+
+L = 4
+d = 2
+psir = [0]*d**L
+psir[0], psir[15] = 1, 1
+
+vin = normalize(psir)
+matricesB = rightCanonicalMPS(d, L, vin.reshape((1, -1)), 1)
+```
+
+## 3. Mixed-Canonical MPS
+```bash
+from mps_qudit import normalize, mixedCanonicalMPS
+
+L = 3
+d = 3
+p = 2  # Canonical center
+psir = [0]*d**L
+psir[0], psir[13], psir[26] = 1, 1, 1
+
+vin = normalize(psir)
+matrices = mixedCanonicalMPS(d, L, vin.reshape((1, -1)), 1, p)
+```
+---
+
+## 📄 Output Format
+
+The MPS matrices are written to ``` test_file.txt ``` in the following format:
+```bash
+A Matrices:
+A0 =
+[[...]]
+A1 =
+[[...]]
+
+B Matrices:
+B0 =
+[[...]]
+B1 =
+[[...]]
+```
+
+---
+
+## 👤 Author
+Utkarsha Bhute
+
+📫 Feel free to reach out for feedback, questions, or collaboration.
+
